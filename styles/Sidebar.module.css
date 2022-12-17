@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  min-width: 240px;
+  max-width: 240px;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 6px;
+}
+
+.menu li:hover {
+  background-color: #eee6e2;
+  cursor: pointer;
+}
+
+.logo {
+  padding: 10px 20px;
+  background-color: black;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
