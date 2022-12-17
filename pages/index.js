@@ -1,8 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Login from "../components/login";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const authState = useSelector((state) => state.auth.authState);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +24,7 @@ const Home = () => {
           Fully Insured Cross-Asset Platform
         </div>
 
-        <Login />
+        {!authState && <Login />}
       </main>
 
       <footer className={styles.footer}>

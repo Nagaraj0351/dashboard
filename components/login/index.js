@@ -4,6 +4,8 @@ import Button from "../../components/elements/Button";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { setAuthState } from "../../slices/authSlice";
 
 const Error = styled.div`
   color: red;
@@ -12,6 +14,8 @@ const Error = styled.div`
 
 const Login = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const [fieldValues, setFieldValues] = useState({
     userName: "",
     password: "",
@@ -33,6 +37,7 @@ const Login = () => {
       fieldValues.userName === userName &&
       fieldValues.password === password
     ) {
+      dispatch(setAuthState(true));
       router.push("/dashboard");
     } else {
       setShowError(true);

@@ -1,6 +1,8 @@
 import styles from "../../styles/Sidebar.module.css";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setAuthState } from "../../slices/authSlice";
 
 const Logout = styled.button`
   padding: 6px 12px;
@@ -19,6 +21,12 @@ const Logout = styled.button`
 
 const Sidebar = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(setAuthState(false));
+    router.push("/");
+  };
 
   return (
     <div className={styles.container}>
@@ -30,7 +38,7 @@ const Sidebar = () => {
         <li>settings</li>
       </ul>
 
-      <Logout onClick={() => router.push("/")}>Logout</Logout>
+      <Logout onClick={handleLogout}>Logout</Logout>
     </div>
   );
 };
